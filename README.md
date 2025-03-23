@@ -2,13 +2,59 @@
 
 This app allows users to find their favourite instant coffee, read and write reviews, view coffee prices, and rate coffee
 
+# Development stage
+
+This app is currently a demo of the full app to come in this app we aim to show some of the many features that will be available in time
+The following things you can do
+
+User:
+
+-   Browse the home page
+-   Create login and account
+-   login and view account
+-   view saved account once logged in
+-   edit account
+-   delete account
+-   add coffee to favourites when logged in and delete coffee from favourites
+
+Admin
+
+-   Go to personal edit page upon logging in (not yet functioning) this page will be unavailable to users
+
+Future features:
+
+-   Review add, create, and delete reviews
+-   Admin can add, update and delete coffee
+
+## Vs code set up
+
+Dependecies note: To run the app in VS code a PC with windows 10 or 11 is required.
+To run the app in VS code please note that if opening in Vs code then Ubuntu 22-.04 (WSL) must be installed to install this on a windows device go to the microsoft store and download the Ubuntu 22.04.5 LTS app.
+Then install windows terminal from the microsoft app store. Then follow the instructions in the link below https://learn.microsoft.com/en-us/windows/wsl/install.
+
+-   Once downloaded go to VS code and use the instructions from the link below to run WSL in VS code https://code.visualstudio.com/docs/remote/wsl-tutorial,
+
+Using VS code:
+To set up and run this application a user needs to perform the following steps
+
+-   Clone the code from Github by going to the link https://github.com/ImTheDmThatsWhy/emergencyRepository and click on the code button and click copy code, then in VS code click on the search bar at the top and type >Git:Clone (or go to show and run commands and search for Git:Clone and click on it) then paste the copied code into the search bar it will then prompt you to save the cloned repository to a folder
+
+-   After you have saved the repository open the folder in VS code by clicking on file open folder,
+
+-   After you have opened the folder, open up a terminal by clicking on terminal then new terminal and open up to the Ubuntu 22.04 (WSL),
+
+Note for a mac device ubuntu can also be installed using the instructions in the following link https://gbtimes.com/how-to-install-ubuntu-on-mac/
+however, the requirements listed in the instructions must be met.
+
+Vs code for Mac can also be installed.
+
 # React + Vite
 
 Source(1): Wikipedia. (2024). Vite (software). [online] Available at: https://en.wikipedia.org/wiki/Vite_(software).
 
 Source (2): npm. (2025). vite. [online] Available at: https://www.npmjs.com/package/vite [Accessed 23 Mar. 2025].
 
-Vite is a local development server that was written by Evan You, it will be used in the React side of this application to help build and develop the server. Vite also provides a built in server side rendering that will be utilised in this application. Vite will be used as its Hot Module Replacement system reduces wait times during production, and its production build time is faster compared to traditional build tools such as WebPaxk and Parcel (Source 1).
+Vite is a local development server that was written by Evan You, it will be used in the React side of this application to help build and develop the server. Vite also provides a built in server side rendering that will be utilised in this application. Vite will be used as its Hot Module Replacement system reduces wait times during production, and its production build time is faster compared to traditional build tools such as WebPaxk and Parcel (Source 1). Note for this assignment React was used in vite.
 
 Dependencies:
 
