@@ -4,11 +4,7 @@ import api from "./../../api.jsx";
 
 function Coffee() {
     const [Success, setSuccess] = useState("");
-    const [isSubmitted, setSubmitted] = useState(false);
     const [loginData, setLoginData] = useState(null);
-    const handleSubmit = () => {
-        setSubmitted(true);
-    };
     const [Account, setAccount] = useState({
         _id: "",
         displayname: "",
@@ -46,7 +42,6 @@ function Coffee() {
             )
                 .then((response) => {
                     setAccount({ ...Account, ...response.data });
-                    setSubmitted(true);
                 })
                 .catch((err) => {
                     console.log(err);
@@ -62,9 +57,7 @@ function Coffee() {
         await api
             .post("/favourite", newFavourite, getAuthorizationToken())
             .then(() => {
-                setSuccess("successfully submitted");
-                console.log("Favourite successfully added");
-                handleSubmit();
+                setSuccess("successfully added to favourites");
             })
             .catch((err) => {
                 if (err?.response?.data)
@@ -104,6 +97,7 @@ function Coffee() {
                     </div>
                 </div>
             ))}
+            <p>{Success}</p>
         </div>
     );
 }

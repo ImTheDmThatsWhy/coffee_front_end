@@ -5,7 +5,6 @@ import api from "./../../api.jsx";
 function Favourites() {
     const [Success, setSuccess] = useState("");
     const [loginData, setLoginData] = useState(null);
-
     const [Account, setAccount] = useState({
         _id: "",
         displayname: "",
@@ -55,24 +54,39 @@ function Favourites() {
         if (!Account._id) return;
         api.get("favourite/account/" + Account._id, getAuthorizationToken())
             .then((response) => {
-                console.log("favourites: " + response.data);
                 setRecords(response.data);
             })
             .catch((err) => console.log(err));
     }, [Account]);
 
+    const deleteFavourite = async (favourite_id, index) => {
+        await api
+            .delete("/favourite/" + favourite_id, getAuthorizationToken())
+            .then(setSuccess("succefully deleted refresh the page"));
+    };
+
     return (
         <div className="card-wrapper">
-            {records.map((coffee, index) => (
+            {records.map((favourite, index) => (
                 <div className="card" key={index}>
-                    <h3>{coffee.name}</h3>
-                    <p>Brand: {coffee.brand}</p>
-                    <p>Type: {coffee.type}</p>
-                    <p>Description: {coffee.description}</p>
-                    <p>Cost: ${coffee.cost}</p>
-                    <p>Rating: {coffee.rating}/5</p>
+                    <h3>{favourite.coffee.name}</h3>
+                    <p>Brand: {favourite.coffee.brand}</p>
+                    <p>Type: {favourite.coffee.type}</p>
+                    <p>Description: {favourite.coffee.description}</p>
+                    <p>Cost: ${favourite.coffee.cost}</p>
+                    <p>Rating: {favourite.coffee.rating}/5</p>
+                    <div>
+                        <button
+                            onClick={() =>
+                                deleteFavourite(favourite._id, index)
+                            }
+                        >
+                            Delete Favourite
+                        </button>
+                    </div>
                 </div>
             ))}
+            <p className="success">{Success}</p>
         </div>
     );
 }
