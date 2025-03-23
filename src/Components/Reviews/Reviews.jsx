@@ -6,7 +6,7 @@ function Reviews() {
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
-        fetch("https://buzz-my-day-app-xaqh.onrender.com/coffee")
+        fetch("https://buzz-my-day-app-xaqh.onrender.com/review")
             .then((response) => response.json())
             .then((data) => setRecords(data))
             .catch((err) => console.log(err));
@@ -18,14 +18,12 @@ function Reviews() {
                 <StarRate />
             </div>
             <div className="card-wrapper-reviews">
-                {records.map((coffee, index) => (
+                {records.map((review, index) => (
                     <div className="card-reviews" key={index}>
-                        <h3>{coffee.name}</h3>
-                        <p>Brand: {coffee.brand}</p>
-                        <p>Type: {coffee.type}</p>
-                        <p>Description: {coffee.description}</p>
-                        <p>Cost: ${coffee.cost}</p>
-                        <p>Rating: {coffee.rating}/5</p>
+                        <h3>{review.displayname}</h3>
+
+                        <p>Rating: {review.rating}/5</p>
+                        <p>{review.description}</p>
                     </div>
                 ))}
             </div>
