@@ -214,15 +214,17 @@ const AccountCreate = () => {
                             <button className="button" onClick={updateAccount}>
                                 Edit
                             </button>
-                            {!isSubmitted && !isCreateAccount ? (
+                        </div>
+                        {!isSubmitted && !isCreateAccount ? (
+                            <div className="submit">
                                 <button
                                     className="button"
                                     onClick={deleteAccount}
                                 >
                                     Delete
                                 </button>
-                            ) : null}
-                        </div>
+                            </div>
+                        ) : null}
                         <p className="success">{Success}</p>
                     </div>
                 </div>

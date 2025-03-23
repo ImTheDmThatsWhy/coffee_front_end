@@ -5,7 +5,7 @@ import Contact from "./Components/Contact/Contact";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Coffee from "./Components/Coffees/Coffee";
-import Favourites from "./Components/Favourites/Favourites";
+import Favourites from "./Components/Favourite/Favourites";
 import LoginRegister from "./Components/LoginRegister/LoginRegister";
 import Reviews from "./Components/Reviews/Reviews";
 import Account from "./Components/Account/Account";
