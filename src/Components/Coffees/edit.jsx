@@ -15,7 +15,7 @@ const AdminCoffee = () => {
         <main>
             <div className="coffeecontainer">
                 <div className="secondcontainer">
-                    <div className="headerCoffee">Admin Page</div>
+                    <div className="headercoffee">Admin Page</div>
                     <p className="welcome">Welcome Admin</p>
                 </div>
                 <div>
