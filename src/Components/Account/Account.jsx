@@ -128,7 +128,7 @@ const AccountCreate = () => {
     };
 
     return (
-        <main>
+        <div>
             <p>{error}</p>
             <div className="accountcontainer">
                 <div className="secondcontainer">
@@ -229,7 +229,7 @@ const AccountCreate = () => {
                     </div>
                 </div>
             </div>
-        </main>
+        </div>
     );
 };
 export default AccountCreate;
