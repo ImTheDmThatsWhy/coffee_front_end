@@ -1,43 +1,23 @@
 import React, { useState, useEffect } from "react";
-import api from "../../api.jsx";
+import api from "./api.jsx";
 import "./LoginRegister.css";
 // import coffee_bean from "../assets/coffeebean.png";
-import mail_icon from "../../assets/mail-02.jpg";
-import password_icon from "../../assets/password.jpg";
-import person_icon from "../../assets/person.jpg";
-import coffee from "../../assets/coffeebean.png";
+import mail_icon from "./mail-02.svg";
+import password_icon from "./password.svg";
+import person_icon from "./person.svg";
+import coffee from "./coffeebean.png";
 import { useNavigate } from "react-router-dom";
 
 const LoginRegister = () => {
-    const [error, setError]=useState("")
     const navigate = useNavigate();
     const [isRegisterPage, setIsRegisterPage] = useState(false);
     const onClick = () => setIsRegisterPage(!isRegisterPage);
     const [Success, setSuccess] = useState("");
-    const [hasLoggedIn, setHasLoggedIn] = useState(false);
     const [user, setLoginUser] = useState({
         displayname: "",
         email: "",
         password: "",
     });
-
-    const getAuthorizationToken = () => {
-        return {
-            headers: {
-                Authorization: "Bearer " + localStorage.getItem("token"),
-            },
-        };
-    };
-
-    useEffect(() => {
-        if (hasLoggedIn) {
-            api.post("/user/admin", {}, getAuthorizationToken())
-                .then((response) => {
-                    navigate("/edit");
-                })
-                .catch((err) => {});
-        }
-    }, [hasLoggedIn]);
 
     const createUser = async () => {
         if (isRegisterPage) {
@@ -61,16 +41,13 @@ const LoginRegister = () => {
                     localStorage.setItem("user_id", response.data.user_id);
                 });
                 setLoginUser({ email: "", password: "" });
-                setSuccess("successfully logged in");
-                setHasLoggedIn(true);
             } catch (error) {
                 if (error.response?.data)
                     console.error(
                         "Error logging in user:",
                         error.response?.data
                     );
-                console.error("Error logging user:", error)
-                setError(error.response?.data?.error || "Error occured")   ;
+                console.error("Error logging user:", error);
             }
         }
     };
@@ -78,9 +55,7 @@ const LoginRegister = () => {
     //attribute for icons Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
     return (
         <main>
-        <p>{error}</p>
             <div className="container">
-                <img className="coffee" src={coffee} alt="coffee"></img>
                 <div className="header">
                     <div className="register">
                         {isRegisterPage ? "Register" : "Login"}

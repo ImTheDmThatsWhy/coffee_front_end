@@ -20,12 +20,14 @@
     justify-content: center;
     text-align: center;
     position: relative;
+
     
 
 }
 .hero h4{
     font-family: "Special Elite", system-ui;
     font-weight: 400;
+    color: black;
 }
 .hero::before {
     content: "";
