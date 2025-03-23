@@ -27,4 +27,5 @@
 }
 .add {
     cursor: grab;
+    gap: 20px;
 }

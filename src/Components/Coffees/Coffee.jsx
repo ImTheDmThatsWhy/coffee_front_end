@@ -48,6 +48,7 @@ function Coffee() {
                 });
         }
     }, [loginData]);
+
     const createCoffee = async (coffee) => {
         try {
             if (isCreateCoffee) {
@@ -135,8 +136,6 @@ function Coffee() {
                 </div>
             ))}
             <p>{Success}</p>
-            <button>Add</button>
-            <button>Update</button>
         </div>
     );
 }

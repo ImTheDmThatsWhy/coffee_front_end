@@ -62,7 +62,7 @@ function Favourites() {
     const deleteFavourite = async (favourite_id, index) => {
         await api
             .delete("/favourite/" + favourite_id, getAuthorizationToken())
-            .then(setSuccess("succefully deleted refresh the page"));
+            .then(setSuccess("successfully deleted refresh the page"));
     };
 
     return (

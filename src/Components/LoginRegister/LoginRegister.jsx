@@ -13,11 +13,30 @@ const LoginRegister = () => {
     const [isRegisterPage, setIsRegisterPage] = useState(false);
     const onClick = () => setIsRegisterPage(!isRegisterPage);
     const [Success, setSuccess] = useState("");
+    const [hasLoggedIn, setHasLoggedIn] = useState(false);
     const [user, setLoginUser] = useState({
         displayname: "",
         email: "",
         password: "",
     });
+
+    const getAuthorizationToken = () => {
+        return {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+        };
+    };
+
+    useEffect(() => {
+        if (hasLoggedIn) {
+            api.post("/user/admin", {}, getAuthorizationToken())
+                .then((response) => {
+                    navigate("/edit");
+                })
+                .catch((err) => {});
+        }
+    }, [hasLoggedIn]);
 
     const createUser = async () => {
         if (isRegisterPage) {
@@ -42,6 +61,7 @@ const LoginRegister = () => {
                 });
                 setLoginUser({ email: "", password: "" });
                 setSuccess("successfully logged in");
+                setHasLoggedIn(true);
             } catch (error) {
                 if (error.response?.data)
                     console.error(
