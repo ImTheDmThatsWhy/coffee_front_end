@@ -48,6 +48,43 @@ function Coffee() {
                 });
         }
     }, [loginData]);
+    const createCoffee = async (coffee) => {
+        try {
+            if (isCreateCoffee) {
+                await api
+                    .post("/coffee", newCoffee, getAuthorizationToken())
+                    .then(() => {
+                        setSuccess("coffee created");
+                        console.log("coffee successfully submitted");
+                        handleSubmit();
+                    })
+                    .catch((err) => {
+                        if (err?.response?.data)
+                            console.error(
+                                "Error creating coffee:",
+                                err.response?.data
+                            );
+                        console.error("Error creating coffee:", err);
+                    });
+            } else {
+                await api
+                    .patch("/coffee/" + coffee._id, getAuthorizationToken())
+                    .then(() => {
+                        setSuccess("successfully edited");
+                        console.log(" successfully edited");
+                        handleSubmit();
+                    })
+                    .catch((err) => {
+                        if (err?.response?.data)
+                            console.error(
+                                "Error updating coffee:",
+                                err.response?.data
+                            );
+                        console.error("Error updating coffee:", err);
+                    });
+            }
+        } catch (error) {}
+    };
 
     const createFavourite = async (coffee_id) => {
         const newFavourite = {
@@ -98,6 +135,8 @@ function Coffee() {
                 </div>
             ))}
             <p>{Success}</p>
+            <button>Add</button>
+            <button>Update</button>
         </div>
     );
 }

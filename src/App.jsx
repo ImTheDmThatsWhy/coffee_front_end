@@ -8,6 +8,7 @@ import Coffee from "./Components/Coffees/Coffee";
 import Favourites from "./Components/Favourite/Favourites";
 import LoginRegister from "./Components/LoginRegister/LoginRegister";
 import Account from "./Components/Account/Account";
+import AdminCoffee from "./Components/Coffees/edit";
 
 import "@fontsource/inter";
 
@@ -31,6 +32,7 @@ const App = () => {
                     <Route path="/favourites" element={<Favourites />} />
                     <Route path="/login" element={<LoginRegister />} />
                     <Route path="/account" element={<Account />} />
+                    <Route path="/edit" element={<AdminCoffee />} />
                 </Routes>
                 <Footer />
             </div>

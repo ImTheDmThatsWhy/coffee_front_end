@@ -18,7 +18,7 @@ const Nav = () => {
                     <a href="/login">Login</a>
                 </li>
                 <li className="nav-right">
-                    <a>Account</a>
+                    <a href="/account">Account</a>
                 </li>
             </ul>
         </navbar>
