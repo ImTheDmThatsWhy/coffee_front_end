@@ -53,10 +53,9 @@ function Favourites() {
 
     useEffect(() => {
         if (!Account._id) return;
-        console.log("getting favourites for: " + Account._id);
         api.get("favourite/account/" + Account._id, getAuthorizationToken())
             .then((response) => {
-                console.log(response.data);
+                console.log("favourites: " + response.data);
                 setRecords(response.data);
             })
             .catch((err) => console.log(err));
