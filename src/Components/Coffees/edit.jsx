@@ -1,6 +1,6 @@
 import "./edit.css";
 import React, { useState, useEffect } from "react";
-import api from "./../../api.jsx";
+import api from "../API/api.jsx";
 
 const AdminCoffee = () => {
     const [loginData, setLoginData] = useState(null);
