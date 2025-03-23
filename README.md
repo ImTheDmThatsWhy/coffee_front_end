@@ -11,73 +11,72 @@ Source (2): npm. (2025). vite. [online] Available at: https://www.npmjs.com/pack
 Vite is a local development server that was written by Evan You, it will be used in the React side of this application to help build and develop the server. Vite also provides a built in server side rendering that will be utilised in this application. Vite will be used as its Hot Module Replacement system reduces wait times during production, and its production build time is faster compared to traditional build tools such as WebPaxk and Parcel (Source 1).
 
 Dependencies:
-- esbuild
-- postcss
-- rollup
+
+-   esbuild
+-   postcss
+-   rollup
 
 To Install: Follow the following instructions to view Vite set up and dev dependencies: https://vite.dev/guide/
 
 Dev Dependencies:
 
-- @ampproject/remapping
-- @babel/parser
-- @jridgewell/trace-mapping
-- @polka/compression
-- @rollup/plugin-alias
-- @rollup/plugin-commonjs
-- @rollup/plugin-dynamic-import-vars
-- @rollup/plugin-json
-- @rollup/plugin-node-resolve
-- @rollup/pluginutils
-- @types/escape-html
-- @types/pnpapi
-- artichokie
-- cac
-- chokidar
-- connect
-- convert-source-map
-- cors
-- cross-spawn
-- debug
-- dotenv
-- dotenv-expand
-- es-module-lexer
-- escape-html
-- estree-walker
-- etag
-- http-proxy
-- launch-editor-middleware
-- lightningcss
-- magic-string
-- mlly
-- mrmime
-- nanoid
-- open
-- parse5
-- pathe
-- periscopic
-- picocolors
-- picomatch
-- postcss-import
-- postcss-load-config
-- postcss-modules
-- resolve.exports
-- rollup-plugin-dts
-- rollup-plugin-esbuild
-- rollup-plugin-license
-- sass
-- sass-embedded
-- sirv
-- source-map-support
-- strip-literal
-- terser
-- tinyglobby
-- tsconfck
-- tslib
-- ufo
-- ws
-
-
+-   @ampproject/remapping
+-   @babel/parser
+-   @jridgewell/trace-mapping
+-   @polka/compression
+-   @rollup/plugin-alias
+-   @rollup/plugin-commonjs
+-   @rollup/plugin-dynamic-import-vars
+-   @rollup/plugin-json
+-   @rollup/plugin-node-resolve
+-   @rollup/pluginutils
+-   @types/escape-html
+-   @types/pnpapi
+-   artichokie
+-   cac
+-   chokidar
+-   connect
+-   convert-source-map
+-   cors
+-   cross-spawn
+-   debug
+-   dotenv
+-   dotenv-expand
+-   es-module-lexer
+-   escape-html
+-   estree-walker
+-   etag
+-   http-proxy
+-   launch-editor-middleware
+-   lightningcss
+-   magic-string
+-   mlly
+-   mrmime
+-   nanoid
+-   open
+-   parse5
+-   pathe
+-   periscopic
+-   picocolors
+-   picomatch
+-   postcss-import
+-   postcss-load-config
+-   postcss-modules
+-   resolve.exports
+-   rollup-plugin-dts
+-   rollup-plugin-esbuild
+-   rollup-plugin-license
+-   sass
+-   sass-embedded
+-   sirv
+-   source-map-support
+-   strip-literal
+-   terser
+-   tinyglobby
+-   tsconfck
+-   tslib
+-   ufo
+-   ws
 
 Licensing and Ethics: Vite is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of Vite in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements Source 1.
 
@@ -107,12 +106,11 @@ The Buzz My Day Application will be a standalone application hosted on a remote 
 This project relies on the following which are explained in detail below:
 
 -   axios
--   css
 -   react
 -   react-dom
--   data-fns
 -   react-router
--   react-router
+-   react-router-dom
+-   @fontsource/inter
 
 ## App Functions:
 
@@ -167,14 +165,6 @@ React according to the first source above has 0 dependencies or dev dependencies
 React-dom according to the second source has one dependency which is scheduler. To install follow the instructions in the following link:
 
 Licensing and Ethics: React and react-dom are under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of React and react-dom in this application as I have acknowledged that React is under the MIT license, in accordance with the license requirements.
-
-### React-icon
-
-source: npm. (2023). react-router. [online] Available at: https://www.npmjs.com/package/react-router.
-
-Has been used where appropriate to import coffee router throughout the project. According to the source above it has zero dependencies and dev dependencies. To install follow instructions in the following link:https://www.npmjs.com/package/react-router.
-
-Licensing and Ethics: react-router is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of react-router in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements.
 
 ### react-router
 
@@ -250,6 +240,7 @@ It also applies even if Microsoft knew or should have known about the possibilit
 As the license allows the development of applications and for third party software there is no ethical concerns in regards to using VS code software including HTML (used to build front end layout) and other imported software providing the imported softwares licensing conditions are met.
 
 ### react-router-dom
+
 Source:
 npm. (n.d.). react-router-dom. [online] Available at: https://www.npmjs.com/package/react-router-dom.
 
@@ -259,20 +250,20 @@ To install follow instructions at: https://www.npmjs.com/package/react-router-do
 
 Dependency:
 
-- react-router
+-   react-router
 
 Dev Dependency:
 
-- react
-- react-dom
-- -tsup
-- typescript
-- wireit
-
+-   react
+-   react-dom
+-   -tsup
+-   typescript
+-   wireit
 
 Licensing and Ethics: react-router-dom is under the Mit license which can be found earlier in the Read Me. As this is an open license there is no ethical concerns about the use of react-router-dom in this application as I have acknowledged that it is under the MIT license, in accordance with the license requirements.
 
 ### Axios
+
 Source: npm. (n.d.). axios. [online] Available at: https://www.npmjs.com/package/axios.
 
 Axios is a library that is being used in the front end to make requests to the API server.
@@ -283,93 +274,92 @@ Licensing and Ethics: axios is under the Mit license which can be found earlier 
 
 Dependencies:
 
-- follow-redirects
-- form-data
-- proxy-from-env
+-   follow-redirects
+-   form-data
+-   proxy-from-env
 
 Dev Dependencies:
 
-- @babel/core
-- @babel/preset-env
-- @commitlint/cli
-- @commitlint/config-conventional
-- @release-it/conventional-changelog
-- @rollup/plugin-alias
-- @rollup/plugin-babel
-- @rollup/plugin-commonjs
-- @rollup/plugin-json
-- @rollup/plugin-multi-entry
-- @rollup/plugin-node-resolve
-- abortcontroller-polyfill
-- auto-changelog
-- body-parser
-- chalk
-- coveralls
-- cross-env
-- dev-null
-- dtslint
-- es6-promise
-- eslint
-- express
-- formdata-node
-- formidable
-- fs-extra
-- get-stream
-- gulp
-- gzip-size
-- handlebars
-- husky
-- istanbul-instrumenter-loader
-- jasmine-core
-- karma
-- karma-chrome-launcher
-- karma-firefox-launcher
-- karma-jasmine
-- karma-jasmine-ajax
-- karma-rollup-preprocessor
-- karma-safari-launcher
-- karma-sauce-launcher
-- karma-sinon
-- karma-sourcemap-loader
-- memoizee
-- minimist
-- mocha
-- multer
-- pretty-bytes
-- release-it
-- rollup
-- rollup-plugin-auto-external
-- rollup-plugin-bundle-size
-- rollup-plugin-terser
-- sinon
-- stream-throttle
-- string-replace-async
-- terser-webpack-plugin
-- typescript
-  
-  ### @fontsource/inter
+-   @babel/core
+-   @babel/preset-env
+-   @commitlint/cli
+-   @commitlint/config-conventional
+-   @release-it/conventional-changelog
+-   @rollup/plugin-alias
+-   @rollup/plugin-babel
+-   @rollup/plugin-commonjs
+-   @rollup/plugin-json
+-   @rollup/plugin-multi-entry
+-   @rollup/plugin-node-resolve
+-   abortcontroller-polyfill
+-   auto-changelog
+-   body-parser
+-   chalk
+-   coveralls
+-   cross-env
+-   dev-null
+-   dtslint
+-   es6-promise
+-   eslint
+-   express
+-   formdata-node
+-   formidable
+-   fs-extra
+-   get-stream
+-   gulp
+-   gzip-size
+-   handlebars
+-   husky
+-   istanbul-instrumenter-loader
+-   jasmine-core
+-   karma
+-   karma-chrome-launcher
+-   karma-firefox-launcher
+-   karma-jasmine
+-   karma-jasmine-ajax
+-   karma-rollup-preprocessor
+-   karma-safari-launcher
+-   karma-sauce-launcher
+-   karma-sinon
+-   karma-sourcemap-loader
+-   memoizee
+-   minimist
+-   mocha
+-   multer
+-   pretty-bytes
+-   release-it
+-   rollup
+-   rollup-plugin-auto-external
+-   rollup-plugin-bundle-size
+-   rollup-plugin-terser
+-   sinon
+-   stream-throttle
+-   string-replace-async
+-   terser-webpack-plugin
+-   typescript
 
-  source: npm. (2025). @fontsource/inter. [online] Available at: https://www.npmjs.com/package/@fontsource/inter [Accessed 23 Mar. 2025].
+    ### @fontsource/inter
 
-  This contains CSS and web font files that allows self hosting of the Inter font.
+    source: npm. (2025). @fontsource/inter. [online] Available at: https://www.npmjs.com/package/@fontsource/inter [Accessed 23 Mar. 2025].
 
-  To install use the instructions in the following link:https://www.npmjs.com/package/@fontsource/inter.
+    This contains CSS and web font files that allows self hosting of the Inter font.
 
-  Zero dependencies according to the above source.
+    To install use the instructions in the following link:https://www.npmjs.com/package/@fontsource/inter.
 
-  Licensing and Ethics: According to the information in https://opensource.org/license/ofl-1-1 @fontersource/inter is under the open font license which allows the use of all fonts freely as long as they are not sold. As the fonts will not be sold there is no ethical concerns in using this software.
+    Zero dependencies according to the above source.
 
-  ```
-  SIL Open Font License Official Text
-  Download the current SIL Open Font License Version 1.1 in either plaintext (OFL.txt) or markdown (OFL.md) format.
- 
+    Licensing and Ethics: According to the information in https://opensource.org/license/ofl-1-1 @fontersource/inter is under the open font license which allows the use of all fonts freely as long as they are not sold. As the fonts will not be sold there is no ethical concerns in using this software.
+
+    ```
+    SIL Open Font License Official Text
+    Download the current SIL Open Font License Version 1.1 in either plaintext (OFL.txt) or markdown (OFL.md) format.
+    ```
 
 For the context and rationale of the license as well as its recognized compliance with the Free Software Definition, the Debian Free Software Guidelines and the Open Source Definition, see Why use the OFL?
- 
+
 Only this English-language original should be considered official and authoritative, see Translation policy.
 
 Text of OFL version 1.1 with example header containing copyright and RFN statements
- 
 
 Copyright (c) <dates>, <Copyright Holder> (<URL|email>),
 with Reserved Font Name <Reserved Font Name>.
@@ -378,19 +368,15 @@ Copyright (c) <dates>, <additional Copyright Holder> (<URL|email>),
 with Reserved Font Name <additional Reserved Font Name>.
 
 Copyright (c) <dates>, <additional Copyright Holder> (<URL|email>).
- 
 
 This Font Software is licensed under the SIL Open Font License, Version 1.1.
 This license is copied below, and is also available with a FAQ at:
 https://openfontlicense.org
- 
 
 -———————————————————————
 
 SIL OPEN FONT LICENSE Version 1.1 - 26 February 2007
 -———————————————————————
-
- 
 
 PREAMBLE
 The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.
@@ -430,6 +416,8 @@ THE FONT SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS
 Last updated on 24 January 2024
 
 The SIL Open Font License is maintained by Victor Gaultney and Nicolas Spalinger. Contact us.
-This site is Copyright © 2005–2024  SIL International (sil.org)  |  Privacy policy  |  Colophon  |  Site map
+This site is Copyright © 2005–2024 SIL International (sil.org) | Privacy policy | Colophon | Site map
+
 ```
 
+```
