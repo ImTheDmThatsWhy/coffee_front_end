@@ -1,0 +1,123 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 25rem;
+    margin: auto;
+    margin-top: 20px;
+    background: burlywood;
+    padding-bottom: 30px;
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    margin-top: 30px;
+}
+img.icon {
+    width: 50px;
+    height: 50px;
+}
+.register {
+    font-size: 2.2rem;
+    font-weight: bolder;
+}
+.underline {
+    width: 10rem;
+    background: black;
+    height: 0.4rem;
+    border-radius: 2rem;
+}
+.background {
+    background: cover;
+}
+.inputs {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+.input {
+    display: flex;
+    align-items: center;
+    margin: auto;
+    width: 15rem;
+    height: 4rem;
+    background: rgb(240, 198, 139);
+    border-radius: 0.5rem;
+}
+.input input {
+    height: 50px;
+    width: 400px;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: black;
+    font-size: 19px;
+}
+.Submit_container {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    justify-content: space-around;
+}
+.button {
+    font-size: 1.2rem;
+    font-weight: bolder;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: grab;
+}
+
+/* @media screen and (min-width: 768px) {
+    .container {
+        margin-top: 20px;
+        margin-bottom: 50px;
+    }
+    .button {
+        font-size: 1.8rem;
+    }
+} */
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 40rem;
+        margin-top: 100px;
+    }
+    img.coffee {
+        height: 5rem;
+    }
+
+    .register {
+        font-size: 3rem;
+    }
+    .inputs {
+        gap: 3rem;
+    }
+    .input {
+        width: 35rem;
+        height: 4rem;
+        border-radius: 0.5rem;
+    }
+    img.icon {
+        width: 100px;
+        height: 60px;
+    }
+    .underline {
+        width: 20rem;
+        background: black;
+        height: 0.3rem;
+    }
+    .input input {
+        font-size: 30px;
+        width: 1000px;
+    }
+    .button {
+        font-size: 2rem;
+        border-radius: 8px;
+    }
+    .Submit_container {
+        margin-top: 40px;
+    }
+}

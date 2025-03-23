@@ -1,33 +1,111 @@
-import './Coffee.css'
-import React, { useState, useEffect } from 'react'
-
-
+import "./Coffee.css";
+import React, { useState, useEffect } from "react";
+import api from "./../../api.jsx";
 
 function Coffee() {
-    const [records, setRecords] = useState([])
+    const [Success, setSuccess] = useState("");
+    const [isSubmitted, setSubmitted] = useState(false);
+    const [loginData, setLoginData] = useState(null);
+    const handleSubmit = () => {
+        setSubmitted(true);
+    };
+    const [Account, setAccount] = useState({
+        _id: "",
+        displayname: "",
+        email: "",
+        name: "",
+        description: "",
+    });
+    const getAuthorizationToken = () => {
+        return {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+        };
+    };
+    const fetchLogin = async () => {
+        const user_id = localStorage.getItem("user_id");
+        if (user_id) {
+            await api
+                .get("/user/" + user_id, getAuthorizationToken())
+                .then((response) => {
+                    setLoginData({ ...response.data });
+                })
+                .catch((err) => console.log(err));
+        }
+    };
+    useEffect(() => {
+        fetchLogin();
+    }, []);
 
-    useEffect(()=>{
-        fetch('https://buzz-my-day-app-xaqh.onrender.com/coffee')
-        .then(response => response.json())
-        .then(data => setRecords(data))
-        .catch(err => console.log(err))
-    }, [])
+    useEffect(() => {
+        if (loginData) {
+            api.get(
+                "/account/" + loginData.displayname,
+                getAuthorizationToken()
+            )
+                .then((response) => {
+                    setAccount({ ...Account, ...response.data });
+                    setSubmitted(true);
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    }, [loginData]);
+
+    const createFavourite = async (coffee_id) => {
+        const newFavourite = {
+            coffee_id: coffee_id,
+            account_id: Account._id,
+        };
+        await api
+            .post("/favourite", newFavourite, getAuthorizationToken())
+            .then(() => {
+                setSuccess("successfully submitted");
+                console.log("Favourite successfully added");
+                handleSubmit();
+            })
+            .catch((err) => {
+                if (err?.response?.data)
+                    console.error(
+                        "Error creating account:",
+                        err.response?.data
+                    );
+                console.error("Error creating account:", err);
+            });
+    };
+    const [records, setRecords] = useState([]);
+
+    useEffect(() => {
+        fetch("https://buzz-my-day-app-xaqh.onrender.com/coffee")
+            .then((response) => response.json())
+            .then((data) => setRecords(data))
+            .catch((err) => console.log(err));
+    }, []);
 
     return (
-        <div className='card-wrapper'>
+        <div className="card-wrapper">
             {records.map((coffee, index) => (
-                <div className='card' key={index}>
+                <div className="card" key={index}>
                     <h3>{coffee.name}</h3>
                     <p>Brand: {coffee.brand}</p>
                     <p>Type: {coffee.type}</p>
                     <p>Description: {coffee.description}</p>
                     <p>Cost: ${coffee.cost}</p>
                     <p>Rating: {coffee.rating}/5</p>
+                    <div>
+                        <button
+                            className="add"
+                            onClick={() => createFavourite(coffee._id)}
+                        >
+                            Add to Favourites
+                        </button>
+                    </div>
                 </div>
             ))}
         </div>
-    )
+    );
 }
 
-
-export default Coffee
+export default Coffee;

@@ -1,15 +1,66 @@
 import "./Favourites.css";
 import React, { useState, useEffect } from "react";
+import api from "./../../api.jsx";
 
 function Favourites() {
+    const [Success, setSuccess] = useState("");
+    const [loginData, setLoginData] = useState(null);
+
+    const [Account, setAccount] = useState({
+        _id: "",
+        displayname: "",
+        email: "",
+        name: "",
+        description: "",
+    });
+    const getAuthorizationToken = () => {
+        return {
+            headers: {
+                Authorization: "Bearer " + localStorage.getItem("token"),
+            },
+        };
+    };
+    const fetchLogin = async () => {
+        const user_id = localStorage.getItem("user_id");
+        if (user_id) {
+            await api
+                .get("/user/" + user_id, getAuthorizationToken())
+                .then((response) => {
+                    setLoginData({ ...response.data });
+                })
+                .catch((err) => console.log(err));
+        }
+    };
+    useEffect(() => {
+        fetchLogin();
+    }, []);
+
+    useEffect(() => {
+        if (loginData) {
+            api.get(
+                "/account/" + loginData.displayname,
+                getAuthorizationToken()
+            )
+                .then((response) => {
+                    setAccount({ ...Account, ...response.data });
+                })
+                .catch((err) => {
+                    console.log(err);
+                });
+        }
+    }, [loginData]);
     const [records, setRecords] = useState([]);
 
     useEffect(() => {
-        fetch("https://buzz-my-day-app-xaqh.onrender.com/coffee")
-            .then((response) => response.json())
-            .then((data) => setRecords(data))
+        if (!Account._id) return;
+        console.log("getting favourites for: " + Account._id);
+        api.get("favourite/account/" + Account._id, getAuthorizationToken())
+            .then((response) => {
+                console.log(response.data);
+                setRecords(response.data);
+            })
             .catch((err) => console.log(err));
-    }, []);
+    }, [Account]);
 
     return (
         <div className="card-wrapper">
