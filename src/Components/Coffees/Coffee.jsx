@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import api from "./../../api.jsx";
 
 function Coffee() {
+    const [error, setError]=useState("")
     const [Success, setSuccess] = useState("");
     const [loginData, setLoginData] = useState(null);
     const [Account, setAccount] = useState({
@@ -65,7 +66,8 @@ function Coffee() {
                                 "Error creating coffee:",
                                 err.response?.data
                             );
-                        console.error("Error creating coffee:", err);
+                        console.error("Error creating coffee:", err)
+                        setError(err.response?.data?.error || "Error occured");
                     });
             } else {
                 await api
@@ -82,8 +84,8 @@ function Coffee() {
                                 err.response?.data
                             );
                         console.error("Error updating coffee:", err);
-                    });
-            }
+                        setError(err.response?.data?.error || "Error occured")
+                    })};
         } catch (error) {}
     };
 
@@ -100,10 +102,10 @@ function Coffee() {
             .catch((err) => {
                 if (err?.response?.data)
                     console.error(
-                        "Error creating account:",
+                        "Error creating favourite:",
                         err.response?.data
                     );
-                console.error("Error creating account:", err);
+                console.error("Error creating favourite:", err); setError(err.response?.data?.error || "Error occured")
             });
     };
     const [records, setRecords] = useState([]);
@@ -116,6 +118,7 @@ function Coffee() {
     }, []);
 
     return (
+        <div><p>{error}</p>
         <div className="card-wrapper">
             {records.map((coffee, index) => (
                 <div className="card" key={index}>
@@ -136,6 +139,7 @@ function Coffee() {
                 </div>
             ))}
             <p>{Success}</p>
+        </div>
         </div>
     );
 }

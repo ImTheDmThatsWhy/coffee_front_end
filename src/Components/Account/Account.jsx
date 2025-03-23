@@ -3,6 +3,7 @@ import api from "./../../api.jsx";
 import "./Account.css";
 
 const AccountCreate = () => {
+    const [error, setError]=useState("")
     const [isCreateAccount, setIsCreateAccount] = useState(true);
     const [Success, setSuccess] = useState("");
     const [isSubmitted, setSubmitted] = useState(false);
@@ -30,7 +31,7 @@ const AccountCreate = () => {
                     name: "",
                     description: "",
                 })
-            );
+            ).catch((error)=>  setError(error.response?.data?.error || "Error occured"));;
     };
 
     const updateAccount = () => {
@@ -116,7 +117,8 @@ const AccountCreate = () => {
                                 "Error updating account:",
                                 err.response?.data
                             );
-                        console.error("Error updating account:", err);
+                        console.error("Error updating account:", err)
+                        setError(err.response?.data?.error || "Error occured");;;
                     });
             }
         } catch (error) {}
@@ -124,6 +126,7 @@ const AccountCreate = () => {
 
     return (
         <main>
+        <p>{error}</p>
             <div className="accountcontainer">
                 <div className="secondcontainer">
                     <div className="headeraccount">Account Details</div>
