@@ -9,6 +9,7 @@ import coffee from "../../assets/coffeebean.png";
 import { useNavigate } from "react-router-dom";
 
 const LoginRegister = () => {
+    const [error, setError]=useState("")
     const navigate = useNavigate();
     const [isRegisterPage, setIsRegisterPage] = useState(false);
     const onClick = () => setIsRegisterPage(!isRegisterPage);
@@ -48,7 +49,8 @@ const LoginRegister = () => {
                         "Error logging in user:",
                         error.response?.data
                     );
-                console.error("Error logging user:", error);
+                console.error("Error logging user:", error)
+                setError(error.response?.data?.error || "Error occured")   ;
             }
         }
     };
@@ -56,6 +58,7 @@ const LoginRegister = () => {
     //attribute for icons Uicons by <a href="https://www.flaticon.com/uicons">Flaticon</a>
     return (
         <main>
+        <p>{error}</p>
             <div className="container">
                 <img className="coffee" src={coffee} alt="coffee"></img>
                 <div className="header">

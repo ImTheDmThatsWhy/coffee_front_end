@@ -4,6 +4,7 @@ import api from "./../../api.jsx";
 
 function Favourites() {
     const [Success, setSuccess] = useState("");
+    const [error, setError]=useState("")
     const [loginData, setLoginData] = useState(null);
     const [Account, setAccount] = useState({
         _id: "",
@@ -27,8 +28,10 @@ function Favourites() {
                 .then((response) => {
                     setLoginData({ ...response.data });
                 })
-                .catch((err) => console.log(err));
-        }
+                .catch((err) => {console.log(err)
+                 setError(err.response?.data?.error || "Error occured")   
+                });
+        }       
     };
     useEffect(() => {
         fetchLogin();
@@ -62,10 +65,12 @@ function Favourites() {
     const deleteFavourite = async (favourite_id, index) => {
         await api
             .delete("/favourite/" + favourite_id, getAuthorizationToken())
-            .then(setSuccess("succefully deleted refresh the page"));
+            .then(setSuccess("succefully deleted refresh the page")).catch((error)=>  setError(error.response?.data?.error || "Error occured"));
     };
 
     return (
+        <div>
+        <p>{error}</p>
         <div className="card-wrapper">
             {records.map((favourite, index) => (
                 <div className="card" key={index}>
@@ -87,6 +92,7 @@ function Favourites() {
                 </div>
             ))}
             <p className="success">{Success}</p>
+        </div>
         </div>
     );
 }
