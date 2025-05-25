@@ -14,32 +14,32 @@ import AdminCoffee from "./Components/Coffees/edit";
 import "@fontsource/inter";
 
 const HomeWithCoffee = () => {
-    return (
-        <>
-            <Home />
-            <Coffee />
-        </>
-    );
+  return (
+    <>
+      <Home />
+      <Coffee />
+    </>
+  );
 };
 
 const App = () => {
-    return (
-        <Router>
-            <div className="parent-container">
-                <Nav />
-                <Routes>
-                    <Route path="/" element={<HomeWithCoffee />} />
-                    <Route path="/contact" element={<Contact />} />
-                    <Route path="/favourites" element={<Favourites />} />
-                    <Route path="/reviews" element={<Reviews />} />
-                    <Route path="/login" element={<LoginRegister />} />
-                    <Route path="/account" element={<Account />} />
-                    <Route path="/edit" element={<AdminCoffee />} />
-                </Routes>
-                <Footer />
-            </div>
-        </Router>
-    );
+  return (
+    <Router>
+      <div className="parent-container">
+        <Nav />
+        <Routes>
+          <Route path="/" element={<HomeWithCoffee />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/favourites" element={<Favourites />} />
+          <Route path="/reviews" element={<Reviews />} />
+          <Route path="/login" element={<LoginRegister />} />
+          <Route path="/account" element={<Account />} />
+          <Route path="/edit" element={<AdminCoffee />} />
+        </Routes>
+        <Footer />
+      </div>
+    </Router>
+  );
 };
 
 export default App;
