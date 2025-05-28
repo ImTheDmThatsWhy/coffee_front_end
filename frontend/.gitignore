@@ -23,3 +23,4 @@ dist-ssr
 *.sw?
 src/Components/Favourites/Favourites.jsx
 src/Components/Favourites/
+.secrets/
