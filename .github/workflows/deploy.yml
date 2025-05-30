@@ -18,11 +18,11 @@ jobs:
           node-version: latest
       
       - name: Install Dependencies
-        run: /npm install
+        run: npm install
 
         
-      # - name: Run tests
-      #   run: npm run test --if-present
+      - name: Run tests
+        run: npm run test --if-present
       
       - name: Build the frontend
         run: npm run build
