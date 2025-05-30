@@ -18,8 +18,9 @@ jobs:
           node-version: latest
       
       - name: Install Dependencies
-        run: npm install
+        run: /npm install
 
+        
       # - name: Run tests
       #   run: npm run test --if-present
       

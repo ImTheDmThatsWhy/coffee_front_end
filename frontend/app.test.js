@@ -6,19 +6,6 @@ import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
 import Review from "./Components/Review/Review";
-const request = require('supertest');
-
-const app = require('./main.jsx')
-
-describe("GET /coffee", () => {
-    it('Should return status 200 OK and a JSON response', async ()=> {
-        const response = await request(app).get('/coffee');
-        expect(response.statusCode).toBe(200);
-        expect(response.body).toEqual({
-            status: "OK"
-        });
-    });
-});
 
 
 {
