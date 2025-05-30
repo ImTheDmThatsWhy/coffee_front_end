@@ -18,7 +18,9 @@ jobs:
           node-version: latest
 
       - name: Navigate to code folder
-        run: cd coffee_front_end
+        uses: cd coffee_front_end
+        with:
+          file: package.json
       
       - name: Install Dependencies
         run: npm install
