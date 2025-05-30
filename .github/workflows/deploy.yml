@@ -16,10 +16,12 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: latest
+
+      - name: Navigate to code folder
+        run: cd coffee_front_end
       
       - name: Install Dependencies
         run: npm install
-
         
       - name: Run tests
         run: npm run test --if-present
