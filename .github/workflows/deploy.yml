@@ -9,6 +9,10 @@ jobs:
   build-deploy:
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: ./coffee_front_end
+
     steps:
       - uses: actions/checkout@v4.2.2
 
@@ -16,11 +20,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: latest
-
-      - name: Navigate to code folder
-        uses: cd coffee_front_end
-        with:
-          file: package.json
       
       - name: Install Dependencies
         run: npm install
