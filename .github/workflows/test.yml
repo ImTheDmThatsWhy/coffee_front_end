@@ -20,6 +20,10 @@ jobs:
         # Ubuntu, MacOs, Windows, 
         runs-on: ubuntu-latest
 
+        defaults:
+          run:
+            working-directory: ./coffee_front_end
+
         # The individual commands to run one after the other 
         # within the job
         steps:
