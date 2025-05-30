@@ -1,7 +1,7 @@
 services:
   client:
     build:
-       context: frontend/
+       context: coffee_front_end/
     container_name: react-frontend-application
     ports:
       - "5173:80"
