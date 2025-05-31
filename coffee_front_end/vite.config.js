@@ -7,8 +7,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom', // Use jsdom for browser-like tests
-    coverage: {
-    reporters: process.env.GITHUB_ACTIONS ? ['verbose', 'github-actions', 'json', 'html']:['verbose','json', 'html'] // Optional: Add coverage reports
-    },
+    reporters: process.env.GITHUB_ACTIONS ? ['verbose', 'github-actions', 'json', 'html']:['verbose','json', 'html'],
   },
 })
