@@ -30,6 +30,6 @@ test("Contact: renders contact form heading", () => {
 
 test("Coffee: renders coffee section", async () => {
   render(<Review />);
-  const ratingFound = await screen.findByText("Your rating is");
+  const ratingFound = await screen.findByText("Yng is"); // Intentional fail
   expect(ratingFound).toBeInTheDocument();
 });
