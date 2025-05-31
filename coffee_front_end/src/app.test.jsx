@@ -1,16 +1,11 @@
-import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+import { expect, test } from 'vitest'
 import Home from "./Components/Home/Home";
 import Nav from "./Components/Nav/Nav";
 import Footer from "./Components/Footer/Footer";
 import Contact from "./Components/Contact/Contact";
-import Review from "./Components/Review/Review";
-
-
-{
-  /*npx react-scripts test src/app.test.js*/
-}
+import Review from "./Components/Reviews/Reviews";
 
 test("Home: renders hero section title", () => {
   render(<Home />);
@@ -35,6 +30,6 @@ test("Contact: renders contact form heading", () => {
 
 test("Coffee: renders coffee section", async () => {
   render(<Review />);
-  const ratingFound = await screen.findByText("rating");
+  const ratingFound = await screen.findByText("Your rating is");
   expect(ratingFound).toBeInTheDocument();
 });
