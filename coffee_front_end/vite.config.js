@@ -8,5 +8,8 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom', // Use jsdom for browser-like tests
     reporters: process.env.GITHUB_ACTIONS ? ['verbose', 'github-actions']:['verbose', 'json', 'html'],
+    outputFile: {
+      json: './output/' + new Date().toUTCString().replaceAll(":", " ") + '-test-report.json'
+    }
   },
 })

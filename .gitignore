@@ -9,6 +9,7 @@ lerna-debug.log*
 
 node_modules
 coffee_front_end/html
+coffee_front_end/output
 dist-ssr
 *.local
 
